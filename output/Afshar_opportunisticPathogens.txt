@@ -1,0 +1,6 @@
+"06"
+"Clostridium perfringens"	0.282233993995249
+"Enterococcus faecalis"	0.201986400004158
+"Enterococcus faecium"	0.201986400004158
+"Klebsiella oxytoca"	NA
+"Klebsiella pneumoniae"	0.229533588799448
