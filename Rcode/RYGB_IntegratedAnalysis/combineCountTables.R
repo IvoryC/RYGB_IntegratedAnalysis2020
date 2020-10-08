@@ -12,8 +12,8 @@ pathToAfshar<-"./input/RYGB_Afshar2018/DADA2/"
 source("./Rcode/RYGB_IntegratedAnalysis/functions.R")
 output<-"./output/"
 
-normalized="log10"
-#normalized="relab"
+#normalized="log10"
+normalized="relab"
 
 
 ###BS study

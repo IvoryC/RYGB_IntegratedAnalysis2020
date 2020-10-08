@@ -1,9 +1,17 @@
-# RYGB_IntegratedAnalysis
+# RYGB_IntegratedAnalysis2020
+
 Steps toward making the figures in the manuscript:
 
-1. set work directory at RYGB_IntegratedAnalysis
+1. Set work directory at RYGB_IntegratedAnalysis2020
 
-2. Running mixed linear models on each dataset to compare the gut microbiome at 
+2. Make DADA2 taxonomic tables for each study by running the following R scripts:
+
+Afshar_16S_TaxaClassification.R
+Assal_16S_TaxaClassification.R
+BS_16S_TaxaClassification.R
+Ilhan_16S_TaxaClassification.R
+
+3. Running mixed linear models on each dataset to compare the gut microbiome at 
 each time point to baseline.
 
  a. 16S datasets were run through both DADA2 and Kraken2:
@@ -22,7 +30,8 @@ each time point to baseline.
  Palleja_kraken2_Metagenomics.R
  Palleja_pathway.R
  
-3. Ordination plot (Figure 1A and B):
+4. Ordination plot (Figure 1A and B):
+
 combineCountTables.R (We need to join count tables for ordination plot and machine learning)
 pco.R
 
@@ -54,9 +63,7 @@ compareStudies_pathways.R
 
 10. Machine leaning (Figure 4 and Supplemental Figure 7)
 
-train_model.R (LASSO)
-train_model_cluster.R (Random Forest takes long and I had to run it on the cluster
-They are similar scripts!)
+train_model.R 
 
 Figure_performance.R
 
