@@ -1,0 +1,11 @@
+"studyPairs"	"compariosn"	"compariosnTime"	"pval"	"r"
+"BS_Kraken2_Metagenomics-p1M_BS_Kraken2_Metagenomics-p6M"	"Same study"	"Different timepoint"	0	0.77281443459759
+"BS_Kraken2_Metagenomics-p1M_BS_Kraken2_Metagenomics-p1Y"	"Same study"	"Different timepoint"	0	0.710497485523693
+"BS_Kraken2_Metagenomics-p1M_Palleja_Kraken2_Metagenomics-p3M"	"Different study"	"Different timepoint"	8.11605727404382e-101	0.260348003506438
+"BS_Kraken2_Metagenomics-p1M_Palleja_Kraken2_Metagenomics-p1Y"	"Different study"	"Different timepoint"	1.03526597733582e-106	0.267775459428173
+"BS_Kraken2_Metagenomics-p6M_BS_Kraken2_Metagenomics-p1Y"	"Same study"	"Different timepoint"	0	0.833867680747743
+"BS_Kraken2_Metagenomics-p6M_Palleja_Kraken2_Metagenomics-p3M"	"Different study"	"Different timepoint"	8.36419468686078e-166	0.331550955966121
+"BS_Kraken2_Metagenomics-p6M_Palleja_Kraken2_Metagenomics-p1Y"	"Different study"	"Different timepoint"	2.67943564695976e-178	0.34334219845231
+"BS_Kraken2_Metagenomics-p1Y_Palleja_Kraken2_Metagenomics-p3M"	"Different study"	"Different timepoint"	3.65058476397745e-166	0.331957851059018
+"BS_Kraken2_Metagenomics-p1Y_Palleja_Kraken2_Metagenomics-p1Y"	"Different study"	"Same timepoint"	5.99768977758877e-157	0.32291155882539
+"Palleja_Kraken2_Metagenomics-p3M_Palleja_Kraken2_Metagenomics-p1Y"	"Same study"	"Different timepoint"	0	0.708341694098317

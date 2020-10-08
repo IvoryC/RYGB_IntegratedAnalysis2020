@@ -1,0 +1,11 @@
+"studyPairs"	"compariosn"	"compariosnTime"	"pval"	"r"
+"BS-p1M_BS-p6M"	"Same study"	"Different timepoint"	1.17045630142348e-122	0.877767725785508
+"BS-p1M_BS-p1Y"	"Same study"	"Different timepoint"	8.36731824029298e-100	0.834642545356827
+"BS-p1M_Palleja-p3M"	"Different study"	"Different timepoint"	1.98918282633619e-74	0.770443270767339
+"BS-p1M_Palleja-p1Y"	"Different study"	"Different timepoint"	5.09998288109721e-70	0.755254106420264
+"BS-p6M_BS-p1Y"	"Same study"	"Different timepoint"	5.04259832237245e-128	0.886234760319653
+"BS-p6M_Palleja-p3M"	"Different study"	"Different timepoint"	1.25916398649532e-48	0.663079992113636
+"BS-p6M_Palleja-p1Y"	"Different study"	"Different timepoint"	1.66507434202782e-48	0.662179184931219
+"BS-p1Y_Palleja-p3M"	"Different study"	"Different timepoint"	1.57734844705776e-49	0.668037298968545
+"BS-p1Y_Palleja-p1Y"	"Different study"	"Same timepoint"	4.3904187363234e-48	0.659725649503885
+"Palleja-p3M_Palleja-p1Y"	"Same study"	"Different timepoint"	1.91975368012487e-201	0.954283586511607
