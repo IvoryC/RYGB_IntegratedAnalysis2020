@@ -1,0 +1,8 @@
+"0-6M"	"0-12M"	"6M-12M"
+"Clostridium perfringens"	0.20975457752779	0.20975457752779	0.89882861987707
+"Enterobacter cloacae"	NA	NA	NA
+"Enterobacter cloacae complex sp."	NA	NA	NA
+"Enterococcus faecalis"	0.469572965404073	0.356415432133574	0.764626535381003
+"Enterococcus faecium"	NA	NA	NA
+"Klebsiella oxytoca"	NA	NA	NA
+"Klebsiella pneumoniae"	0.356415432133574	0.20975457752779	0.650977835369816
