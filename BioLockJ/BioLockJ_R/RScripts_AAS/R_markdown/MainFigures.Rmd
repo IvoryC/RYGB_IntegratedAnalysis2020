@@ -1,6 +1,6 @@
 ---
 title: "Review Figures"
-author: "Alicia Sorgen and Ivory Blakley"
+author: "Farnaz Fouladi, Alicia Sorgen and Ivory Blakley"
 output:
   pdf_document:
     toc: true
@@ -16,16 +16,24 @@ library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+\newpage
 # Review Reproduced Figures
 
-This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on:  ` `r date()` `.
+This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on:                          
+` `r date()` `
 
-The old and new may not be bit-for-bit identical.  There may some random seed that is used in a training step, or a difference in the font libraries available, graphics paramaters like resolution or image size may be different, the publication may have some manually curated labels that the script-generated image does not.  There are many acceptable reasons why a reproduction of a figure may not be identical to the original; but we expect that the core conclusion from the original will hold for the reproduction.
+This document aims to:              
+
+ * Create an easy way for the authors to check that the annotaed figures align with the output of the script, even throughout an iterative review process that may prompt edits at multiple stages of the pipeline.
+ * Make the pipeline transparent to readers.
+ * Facilitate reproducing the computational components of this work.
+
+The old and new may not be bit-for-bit identical.  There may some random seed that is used in a training step, or a difference in font libraries; graphics parameters like resolution or image size may be different, the publication may have some manually curated labels that the script-generated image does not.  There are many acceptable reasons why a reproduction of a figure may not be identical to the original; but we expect that the core conclusion from the original will hold for the reproduction.
 
 ```{r}
 pipeRoot <- dirname(dirname(getwd()))
 showPipelineRoot <- function(){
-    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines', which is not useful
+    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines'
     return(gsub("/mnt/efs/pipelines", "<BLJ_PROJ folder>", pipeRoot))
 }
 showPipelineFile <- function(filePath){
@@ -42,9 +50,12 @@ The re-produced images are taken from modules under this folder:
 ## Figure 1
 
 ```{r Fig1, out.width="100%"}
-fig1 = file.path(getwd(), "MainFigure1.png")
+fig1 = file.path(origPanels, "Figure1.pdf")
+f1legend = file.path(origPanels, "Figure1-legend.md")
 include_graphics(fig1)
 ```
+
+`r readLines(f1legend)`
 
 \newpage
 ### Panel A and B
@@ -92,6 +103,7 @@ include_graphics(c(left, right))
 The left image comes from the publication.  The right image is the pipeline result file:            
 ``r showPipelineFile(right)``
 
+\newpage
 ### Panel F
 
 ```{r out.width="50%"}
@@ -109,26 +121,39 @@ The left image comes from the publication.  The right image is the pipeline resu
 \newpage
 ## Figure2 
 
+```{r fig2, out.height="75%"}
+fig2 = file.path(origPanels, "Figure2.pdf")
+f2legend = file.path(origPanels, "Figure2-legend.md")
+include_graphics(fig2)
+```
+
+`r readLines(f2legend)`
+
+\newpage
 ### Heatmap
 
-```{r fig2, out.width="50%"}
+```{r out.width="50%"}
 fileName <- "Genus_HeatmapAndCluster.pdf"
-dir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "Heatmap"), "output")
-newFile <- file.path(dir, fileName) 
-include_graphics(c(fileName, newFile))
+left = file.path(origPanels, fileName)
+heatDir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "Heatmap"), "output")
+right <- file.path(heatDir, fileName) 
+include_graphics(c(left, right))
 ```
 
 The left image comes from the publication.  The right image is the pipeline result file:            
-``r showPipelineFile(newFile)``
+``r showPipelineFile(right)``
 
 
 \newpage
 ## Figure 3
 
 ```{r Fig3, out.width="100%"}
-fig3 = file.path(origPanels, "MainFigure3.png")
+fig3 = file.path(origPanels, "Figure3.pdf")
+f3legend = file.path(origPanels, "Figure3-legend.md")
 include_graphics(fig3)
 ```
+
+`r readLines(f3legend)`
 
 \newpage
 ### Panels A and B
@@ -197,9 +222,11 @@ The left image comes from the publication.  The right image is the pipeline resu
 ## Figure 4
 
 ```{r Fig4, out.width="100%"}
-fig4 = file.path(getwd(), "MainFigure4.png")
+fig4 = file.path(getwd(), "Figure4.pdf")
 include_graphics(fig4)
 ```
+
+`r readLines(f1legend)`
 
 \newpage
 ### Panel A 
@@ -209,6 +236,7 @@ fileName="performance_heatmap_lasso.png"
 upper = file.path(origPanels, fileName)
 perform = file.path(dir(pipeRoot, pattern="FigPerformlasso", full.names=TRUE), "output")
 lower = file.path(perform, gsub(".png", ".pdf", fileName) )
+f4legend = file.path(origPanels, "Figure4-legend.md")
 
 include_graphics(upper)
 include_graphics(lower)
@@ -236,19 +264,28 @@ The upper image comes from the publication.  The lower image is the pipeline res
 \newpage
 ## Figure 5
 
+```{r fig5}
+fig5 = file.path(origPanels, "Figure5.pdf")
+f5legend = file.path(origPanels, "Figure5-legend.md")
+include_graphics(fig5)
+```
+
+`r readLines(f1legend)`
+
+\newpage
 ### All panels
 
 ```{r}
 fileName="OportunisticPathogens.pdf"
-
+upper = file.path(origPanels, fileName)
 oppPath = file.path(dir(pipeRoot, full.names=TRUE, pattern="OppPathogens"), "output")
 lower = file.path(oppPath, fileName)
 ```
 
-Publication
+Original
 
 ```{r fig5original}
-include_graphics(fileName)
+include_graphics(upper)
 ```
 
 Reproduction
@@ -259,6 +296,21 @@ include_graphics(lower)
 
 The upper image comes from the publication.  The lower image is the pipeline result file:            
 ` `r showPipelineFile(lower)` `
+
+
+\newpage
+## Table 1
+
+```{r}
+fileName="Table1.pdf"
+t1legend="Table1-legend.md"
+
+iamge = file.path(origPanels, fileName)
+include_graphics(iamge)
+```
+
+`r readLines(t1legend)`
+
 
 \newpage
 ```{r}
