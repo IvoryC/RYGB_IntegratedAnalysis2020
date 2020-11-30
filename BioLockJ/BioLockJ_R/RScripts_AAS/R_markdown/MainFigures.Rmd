@@ -159,10 +159,11 @@ include_graphics(fig3)
 ### Panels A and B
 
 ```{r out.width="80%"}
-upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
+fileName="Species_mainFigure3ab.pdf"
+upper = file.path(origPanels, fileName)
 
 compMeta = file.path(dir(pipeRoot, full.names=TRUE, pattern="_CompareStudiesMetagenomics"),"output")
-lower = file.path(compMeta, "Species_mainFigure3ab.pdf")
+lower = file.path(compMeta, fileName)
 
 include_graphics(upper)
 include_graphics(lower)
@@ -191,10 +192,11 @@ The left image comes from the publication.  The right image is the pipeline resu
 Upper image is large, scroll down.
 
 ```{r out.width="80%"}
-upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
+fileName="Pathway_mainFigure3de.pdf"
+upper = file.path(origPanels, fileName)
 
 compPath = file.path(dir(pipeRoot, full.names=TRUE, pattern="CompareStudiesPathways"),"output")
-lower = file.path(compPath, "Pathway_mainFigure3de.pdf")
+lower = file.path(compPath, fileName)
 
 include_graphics(upper)
 include_graphics(lower)
