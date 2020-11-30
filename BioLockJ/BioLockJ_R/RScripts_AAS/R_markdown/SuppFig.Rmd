@@ -58,8 +58,8 @@ The re-produced images are taken from modules under this folder:
 \newpage
 ## Supplemental Figure 1
 
-```{r out.width=400, out.height=400}
-left = file.path(origPanels, "SuppFig1.png")
+```{r out.width="50%"}
+left = file.path(origPanels, "Diversity.pdf")
 diversity = file.path(dir(pipeRoot, pattern="Diversity", full.names=TRUE), "output")
 right = file.path(diversity, "Diversity.pdf")
 
@@ -100,8 +100,8 @@ To see the reproduction of Supplemental Figure 3, see pipeline file:
 \newpage
 ## Supplemental Figure 4
 
-```{r out.width=400, out.height=400}
-left = file.path(origPanels, "SuppFig4.png")
+```{r out.width="50%"}
+left = file.path(origPanels, "SV_BS_Assal.pdf")
 SVAnalysis = file.path(dir(pipeRoot, pattern="SVAnalysis", full.names=TRUE), "output")
 right = file.path(SVAnalysis, "SV_BS_Assal.pdf")
 
@@ -137,18 +137,32 @@ To see the reproduction of Supplemental Figure 6, see pipeline file:
 ` `r showPipelineFile(comparePathway)` `
 
 
+\newpage
 ## Supplemental Figure 7
 
-```{r out.height=400}
-top = "SuppFig7.png"
-lowLeft = "performance_heatmap_randomForest.png"
-lowRigth = "loso_performance_randomForest.png"
+```{r out.width="100%"}
+topleft = file.path(origPanels, "performance_heatmap_randomForest.pdf")
+topright = file.path(origPanels, "loso_performance_randomForest.pdf")
 
-include_graphics(top)
+forestPerformance = dir(pipeRoot, pattern="FigPerformrandomForest")
+includedRandomForest = length(forestPerformance) == 1
+
+if (includedRandomForest){
+    lowLeft = file.path(forestPerformance, "output","performance_heatmap_randomForest.pdf")
+    lowRight = file.path(forestPerformance, "output","loso_performance_randomForest.pdf")
+}else{
+    msg="In some iterations of the config file, the random forest training module and the corresponding performance module are commented out to save time in the pipeline.  To include these modules, makes sure the corresponding lines in the config file start with '#BioModule', with exactly 1 '#' character."
+    message(msg)
+    lowLeft = "When the random forest training module and its performance evaluation module are included, the file will be called: performance_heatmap_randomForest.pdf"
+    lowRigth = "When the random forest training module and its performance evaluation module are included, the file will be called: loso_performance_randomForest.pdf"
+}
+
+include_graphics(c(topleft, topright))
 ```
-```{r out.width=450}
-include_graphics(c(lowLeft, lowRigth))
+```{r out.width="50%"}
+if (includedRandomForest){ include_graphics(c(lowLeft, lowRigth)) }
 ```
+`r if (!includedRandomForest){msg}`
 
 Top left and right (original): ` `r top` `                           
 Lower left (reproduction): ` `r lowLeft` `                           
