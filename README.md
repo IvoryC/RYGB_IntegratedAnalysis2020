@@ -1,89 +1,38 @@
-# RYGB_IntegratedAnalysis2020
 
-Steps toward making the figures in the manuscript:
+# RYGB Integrated Analysis 2020
 
-1. Set work directory at RYGB_IntegratedAnalysis2020
+## Transparency and Reproducibility
 
-2. Make DADA2 taxonomic tables for each study by running the following R scripts:
+This repository contains:         
 
-Afshar_16S_TaxaClassification.R
-Assal_16S_TaxaClassification.R
-BS_16S_TaxaClassification.R
-Ilhan_16S_TaxaClassification.R
-
-3. Running mixed linear models on each dataset to compare the gut microbiome at 
-each time point to baseline.
-
- a. 16S datasets were run through both DADA2 and Kraken2:
- Afshar_DADA2_16S.R
- Afshar_kraken2_16S.R
- Assal_DADA2_16S.R
- Assal_kraken2_16S.R
- BS_DADA2_16S.R
- BS_kraken2_16S.R
- Ilhan_DADA2_16S.R
- Ilhan_kraken2_16S.R
+ * Configuration files used for sequence processing for all sub-projects, see folder: `BioLockJ/SequenceProcessing`
+ * Counts files produced by processing the sequences, see folder: `input`
+ * Configuration file to run the analysis component of the project, including all Rcode, see folder: `BioLockJ/Analysis`
+ * Results of the analysis (figures and tables), see folder: `output`
  
- b. Metagenomics were run through Kraken2 and HUMAnN2:
- BS_kraken2_Metagenomics.R
- BS_pathway.R
- Palleja_kraken2_Metagenomics.R
- Palleja_pathway.R
- 
-4. Ordination plot (Figure 1A and B):
+See `BioLockJ/Analysis/README` for instructions on how to repeat the entire analysis on your own machine, thus reproducing all figures and tables.  A review module was added to the pipeline to facilitate readers and reviewers comparing the reproduced output the the corresponding components in the manuscript.
 
-combineCountTables.R (We need to join count tables for ordination plot and machine learning)
-pco.R
+## Manuscript
 
-4. Scatter plots for 16S datasets at the genus level (Figure 1C and D, Supplemental Figure 2) and also the boxplots in Figure 1E and F
+The manuscript for this project is currently available through https://www.medrxiv.org .
 
-compareStudies_16S.R
+Title:                
+_A Microbial Signature Following Bariatric Surgery is Robustly Consistent Across Multiple Cohorts_
 
-5. Scatter plot for 16S datasets at the sequence variant level (Supplemental Figure 3)
+Authors:               
+Farnaz Fouladi, Ian M. Carroll, Thomas J. Sharpton, Emily Bulik-Sullivan, Leslie Heinberg, Kristine Steffen, Anthony A. Fodor
 
-compareStudies_SV.R
+medRxiv 2020.11.12.20230581; doi:                                 
+https://doi.org/10.1101/2020.11.12.20230581
 
-6. Scatter plot for the Supplemental Figure 4
+This article is a preprint and has not been peer-reviewed. It reports new medical research that has yet to be evaluated and so should not be used to guide clinical practice.
 
-SequenceVariantAnalysis.R
+## Abstract 
 
-7. Diversity (Supplemental Figure 1)
+**Background** Bariatric surgery induces significant shifts in the gut microbiota which could potentially contribute to weight loss and metabolic benefits. The aim of this study was to characterize a microbial signature following Roux-en-Y Gastric bypass (RYGB) surgery using novel and existing gut microbiota sequence data.
 
-Diversity.R
+**Results** We generated 16S rRNA gene and metagenomic sequences from fecal samples from patients undergoing RYGB surgery (n = 61 for 16S rRNA gene and n = 135 for metagenomics). We compared these data with three smaller publicly available 16S rRNA gene and one metagenomic datasets from patients who also underwent RYGB surgery. Mixed linear models and machine learning approaches were used to examine the presence of a common microbial signature across studies. Comparison of our new sequences with previous longitudinal studies revealed strikingly similar profiles in both fecal microbiota composition (r = 0.41 ± 0.10; p < 0.05) and metabolic pathways (r = 0.70 ± 0.05; p < 0.001) early after surgery across multiple datasets. Machine learning approaches revealed that the replicable gut microbiota signature associated with RYGB surgery could be used to discriminate pre- and post-surgical samples. Opportunistic pathogen abundance also increased post-surgery in a consistent manner across cohorts.
 
-8. Heatmap in Figure 2
+**Conclusion** Our study reveals a robust microbial signature involving many commensal and pathogenic taxa and metabolic pathways early after RYGB surgery across different studies and sites. Characterization of the effects of this robust microbial signature on outcomes of bariatric surgery could provide insights into the development of microbiome-based interventions for predicting or improving outcomes following surgery.
 
-Heatmap.R
-
-9. Scatter plots for Kraken2 and HUMAnN2 (Figure 3 and Supplemental 
-Figures 5 and 6 )
-
-compareStudies_Metagenomics.R
-compareStudies_pathways.R
-
-10. Machine leaning (Figure 4 and Supplemental Figure 7)
-
-train_model.R 
-
-Figure_performance.R
-
-11. Opportunistic pathogenes (Figure 5)
-
-OpportunisticPathogens.R
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
+**Trial Registration** clinicaltrials.gov, number NCT03065426. Registered 27 February 2017, https://www.clinicaltrials.gov/ct2/show/NCT03065426
