@@ -234,10 +234,10 @@ include_graphics(fig4)
 ### Panel A 
 
 ```{r out.height="30%"}
-fileName="performance_heatmap_lasso.png"
+fileName="performance_heatmap_lasso.pdf"
 upper = file.path(origPanels, fileName)
 perform = file.path(dir(pipeRoot, pattern="FigPerformlasso", full.names=TRUE), "output")
-lower = file.path(perform, gsub(".png", ".pdf", fileName) )
+lower = file.path(perform, fileName )
 f4legend = file.path(origPanels, "Figure4-legend.md")
 
 include_graphics(upper)
@@ -251,9 +251,9 @@ The upper image comes from the publication.  The lower image is the pipeline res
 ### Panel B
 
 ```{r out.height="30%"}
-fileName="loso_performance_lasso.png"
+fileName="loso_performance_lasso.pdf"
 upper = file.path(origPanels, fileName)
-lower = file.path(perform, gsub(".png", ".pdf", fileName))
+lower = file.path(perform, fileName)
 
 include_graphics(upper)
 include_graphics(lower)

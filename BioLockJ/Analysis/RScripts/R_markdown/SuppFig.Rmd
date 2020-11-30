@@ -140,7 +140,7 @@ To see the reproduction of Supplemental Figure 6, see pipeline file:
 \newpage
 ## Supplemental Figure 7
 
-```{r out.width="100%"}
+```{r out.width="50%"}
 topleft = file.path(origPanels, "performance_heatmap_randomForest.pdf")
 topright = file.path(origPanels, "loso_performance_randomForest.pdf")
 
@@ -158,13 +158,12 @@ if (includedRandomForest){
 }
 
 include_graphics(c(topleft, topright))
-```
-```{r out.width="50%"}
 if (includedRandomForest){ include_graphics(c(lowLeft, lowRigth)) }
 ```
 `r if (!includedRandomForest){msg}`
 
-Top left and right (original): ` `r top` `                           
+Top left (original): ` `r topleft` `           
+Top right (original): ` `r topright` `     
 Lower left (reproduction): ` `r lowLeft` `                           
 Lower tight (reproduction): ` `r lowRigth` ` 
 
