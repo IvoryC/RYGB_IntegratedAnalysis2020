@@ -1,9 +1,13 @@
 ---
 title: "BioLockJ Reproduced Figures"
-author: "Alicia Sorgen"
+author: "Farnaz Fouladi, Alicia Sorgen and Ivory Blakley"
 output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
   html_document:
     toc: true
+    toc_depth: 3
     code_folding: hide
 ---
 
@@ -12,150 +16,128 @@ library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# R Markdown
+\newpage
+# Review Reproduced Figures
 
-This R Markdown document produces the output for the manuscript figures and those reproduced using the BioLockJ pipeline.
+This is a guidd to help compare figures as they appear in the published work, and the corresponding figures that were re-generated on:                          
+` `r date()` `
 
-```{r include = FALSE}
-library(stringr)
-pipeRoot = dirname(dirname(getwd()))
-moduleDir = dirname(getwd())
+Supplemental figures that consist of one or two panels are practical to show here.  However, many supplemental documents are multiple pages long, and it is more practical to view the files directly.  The file paths are given here as a guide, but the images are not shown.
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PCO"),"/output/Genus_PCO.png")
-output <- paste0(moduleDir,"/resources/Genus_PCO.png")
-file.copy(from = input, to = output)
+The MainFigures.pdf output by the MainFigures module is probably of much greater interest to readers who want to have a side-by-side image comparison.
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/Genus_mainFigure1cd.png")
-output <- paste0(moduleDir,"/resources/Genus_mainFigure1cd.png")
-file.copy(from = input, to = output)
+This document aims to:              
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/Genus_coefficientsFromScatterPlots.png")
-output <- paste0(moduleDir,"/resources/Genus_coefficientsFromScatterPlots.png")
-file.copy(from = input, to = output)
+ * Create an easy way for the authors to check that the annotaed figures align with the output of the script, even throughout an iterative review process that may prompt edits at multiple stages of the pipeline.
+ * Make the pipeline transparent to readers.
+ * Facilitate reproducing the computational components of this work.
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/Genus_BoxPlotCorrelations.png")
-output <- paste0(moduleDir,"/resources/Genus_BoxPlotCorrelations.png")
-file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_scatterPlots.png")
-output <- paste0(moduleDir,"/resources/Genus_scatterPlots.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/SV_BS_Assal.png")
-output <- paste0(moduleDir,"/resources/SV_BS_Assal.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Diversity.png")
-output <- paste0(moduleDir,"/resources/Diversity.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_scatterPlots.png")
-output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_HeatmapAndCluster.png")
-output <- paste0(moduleDir,"/resources/Genus_HeatmapAndCluster.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
-output <- paste0(moduleDir,"/resources/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_mainFigure3ab.png")
-output <- paste0(moduleDir,"/resources/Species_mainFigure3ab.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
-output <- paste0(moduleDir,"/resources/Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_scatterPlots_MetagenomicsBSAndPalleja.png")
-output <- paste0(moduleDir,"/resources/Pathway_scatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_mainFigure3de.png")
-output <- paste0(moduleDir,"/resources/Pathway_mainFigure3de.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
-output <- paste0(moduleDir,"/resources/Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/performance_heatmap_randomForest.png")
-output <- paste0(moduleDir,"/resources/performance_heatmap_randomForest.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/loso_performance_randomForest.png")
-output <- paste0(moduleDir,"/resources/loso_performance_randomForest.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/performance_heatmap_lasso.png")
-output <- paste0(moduleDir,"/resources/performance_heatmap_lasso.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/loso_performance_lasso.png")
-output <- paste0(moduleDir,"/resources/loso_performance_lasso.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/OportunisticPathogens.png")
-output <- paste0(moduleDir,"/resources/OportunisticPathogens.png")
-file.copy(from = input, to = output)
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+showPipelineRoot <- function(){
+    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines'
+    return(gsub("/mnt/efs/pipelines", "<BLJ_PROJ folder>", pipeRoot))
+}
+showPipelineFile <- function(filePath){
+    return(gsub(paste0(pipeRoot,"/"), "", filePath))
+}
+origPanels = getwd()
 ```
 
-## Original Supplemental Figure 1
+The re-produced images are taken from modules under this folder:               
+``r showPipelineRoot()``
 
+
+
+
+```{r include = FALSE}
+# library(stringr)
+```
+
+\newpage
+## Supplemental Figure 1
 
 ```{r out.width=400, out.height=400}
-left = "SuppFig1.png"
-right = "Diversity.png"
+left = file.path(origPanels, "SuppFig1.png")
+diversity = file.path(dir(pipeRoot, pattern="Diversity", full.names=TRUE), "output")
+right = file.path(diversity, "Diversity.pdf")
 
 include_graphics(c(left, right))
 ```
 
 Left (original): ` `r left` `                           
-Right(reproduction): ` `r right` ` 
-
-## Original Supplemental Figure 2
-
-Not shown.  Multi-page supplement.
-
-Files are `SuppFig2.png` (original) and `Genus_scatterPlots.png` (reproduction).
+Right (reproduction): ` `r showPipelineFile(right)` ` 
 
 
-## Original Supplemental Figure 3
+\newpage
+## Supplemental Figure 2
 
 Not shown.  Multi-page supplement.
 
-Files are `SuppFig3.png` (original) and `Seq_scatterPlots.png` (reproduction).
+```{r}
+compare16s = file.path(dir(pipeRoot, pattern="CompareStudies16S", full.names=TRUE), "output", "Genus_scatterPlots.pdf")
+```
+
+To see the reproduction of Supplemental Figure 2, see pipeline file:
+
+` `r showPipelineFile(compare16s)` `
 
 
-## Original Supplemental Figure 4
+## Supplemental Figure 3
+
+Not shown.  Multi-page supplement.
+
+```{r}
+compareSV = file.path(dir(pipeRoot, pattern="CompareStudiesSV", full.names=TRUE), "output", "Seq_scatterPlots.pdf")
+```
+
+To see the reproduction of Supplemental Figure 3, see pipeline file:
+
+` `r showPipelineFile(compareSV)` `
+
+
+\newpage
+## Supplemental Figure 4
 
 ```{r out.width=400, out.height=400}
-left = "SuppFig4.png"
-right = "SV_BS_Assal.png"
+left = file.path(origPanels, "SuppFig4.png")
+SVAnalysis = file.path(dir(pipeRoot, pattern="SVAnalysis", full.names=TRUE), "output")
+right = file.path(SVAnalysis, "SV_BS_Assal.pdf")
 
 include_graphics(c(left, right))
 ```
 
 Left (original): ` `r left` `                          
-Right(reproduction): ` `r right` ` 
+Right(reproduction): ` `r showPipelineFile(right)` ` 
 
-## Original Supplemental Figure 5
-
-Not shown.  Multi-page supplement.
-
-Files are `SuppFig5.png` (original) and `Species_scatterPlots_MetagenomicsBSAndPalleja.png` (reproduction).
-
-
-## Original Supplemental Figure 6
+## Supplemental Figure 5
 
 Not shown.  Multi-page supplement.
 
-Files are `SuppFig6.png` (original) and `Pathway_scatterPlots_MetagenomicsBSAndPalleja.png` (reproduction).
+```{r}
+compareMetaGenomics = file.path(dir(pipeRoot, pattern="CompareStudiesMetagenomics", full.names=TRUE), "output", "Species_scatterPlots_MetagenomicsBSAndPalleja.pdf")
+```
+
+To see the reproduction of Supplemental Figure 5, see pipeline file:
+
+` `r showPipelineFile(compareMetaGenomics)` `
 
 
-## Original Supplemental Figure 7
+## Supplemental Figure 6
+
+Not shown.  Multi-page supplement.
+
+```{r}
+comparePathway = file.path(dir(pipeRoot, pattern="CompareStudiesPathways", full.names=TRUE), "output", "Pathway_scatterPlots_MetagenomicsBSAndPalleja.pdf")
+```
+
+To see the reproduction of Supplemental Figure 6, see pipeline file:
+
+` `r showPipelineFile(comparePathway)` `
+
+
+## Supplemental Figure 7
 
 ```{r out.height=400}
 top = "SuppFig7.png"
@@ -172,7 +154,7 @@ Top left and right (original): ` `r top` `
 Lower left (reproduction): ` `r lowLeft` `                           
 Lower tight (reproduction): ` `r lowRigth` ` 
 
-
+\newpage
 ```{r}
 sessionInfo()
 ```
